@@ -45,7 +45,7 @@ exports.signup = async (req, res) => {
 
     try {
 
-        const { username, email, password } = req.body;
+        const { username, email, password, name } = req.body;
 
         const existingUser = await User.findOne({ email });
         if (existingUser) {
@@ -58,6 +58,7 @@ exports.signup = async (req, res) => {
             username,
             email,
             password: hashedPassword,
+            name
         });
 
         await user.save();
