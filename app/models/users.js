@@ -21,8 +21,11 @@ const userSchema = new mongoose.Schema({
     offHours: [{
         start: { type: String, required: true },
         end: { type: String, required: true }
+    }],
+    bookedHours: [{
+        start: { type: String, required: true },
+        end: { type: String, required: true }
     }]
-
 
 });
 
