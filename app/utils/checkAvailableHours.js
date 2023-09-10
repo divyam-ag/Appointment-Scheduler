@@ -1,3 +1,9 @@
+/**
+    @req gets requestedStartTime, requestedEndTime, unavailableHours
+    @description checks of the requested time does not coincide with unavailable hours
+    @res return boolean value
+*/
+
 const isTimeSlotWithinOffHours = (requestedStartTime, requestedEndTime, unavailableHours) => {
 
     const requestedStart = new Date(requestedStartTime);

@@ -3,6 +3,13 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 require('dotenv').config();
 
+
+/**
+    @req gets the request from login route
+    @description logs in the user if an existing account exists
+    @res returns the unique authentication token
+*/
+
 exports.login = async (req, res) => {
     try {
 
@@ -28,6 +35,11 @@ exports.login = async (req, res) => {
         res.status(500).json({ message: 'Failed to Login user' });
     }
 };
+
+/**
+    @req gets the request from signup route
+    @description signs up a new user if an existing account doesnt exist
+*/
 
 exports.signup = async (req, res) => {
 
@@ -58,6 +70,11 @@ exports.signup = async (req, res) => {
     }
 
 };
+
+/**
+    @req gets the request from updateProfile route
+    @description updates the profile of the user on the basis of the entered data.
+*/
 
 exports.updateProfile = async (req, res) => {
     try {

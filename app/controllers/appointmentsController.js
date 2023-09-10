@@ -5,6 +5,12 @@ const { isTimeSlotWithinOffHours } = require('../utils/checkAvailableHours');
 require('dotenv').config();
 const secretKey = process.env.SECRET_KEY;
 
+/**
+    @req gets the request from schedule route
+    @description Schedules an appointments on the basis of availibility of both scheduler and guest
+    @res returns the created appointment if successful
+*/
+
 exports.scheduleAppointment = async (req, res) => {
     try {
 
@@ -87,6 +93,12 @@ exports.scheduleAppointment = async (req, res) => {
         res.status(500).json({ message: 'Failed to schedule appointment' });
     }
 };
+
+/**
+    @req gets the request from upcoming route
+    @description fetches all upcoming appointments of the user
+    @res returns the list of upcoming appointments
+*/
 
 exports.upcomingAppointments = async (req, res) => {
 
