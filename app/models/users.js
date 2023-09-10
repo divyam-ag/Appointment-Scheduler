@@ -15,8 +15,18 @@ const userSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    name: {
+        type: String,
+    },
+    offHours: [{
+        start: { type: String, required: true },
+        end: { type: String, required: true }
+    }]
+
+
 });
 
+userSchema.set('default', { offHours: [] });
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;

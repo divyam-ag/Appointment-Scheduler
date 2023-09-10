@@ -57,4 +57,32 @@ exports.signup = async (req, res) => {
         res.status(500).json({ message: 'Failed to Login user' });
     }
 
-}
+};
+
+exports.updateProfile = async (req, res) => {
+    try {
+        const { name, password, offHours } = req.body;
+        const userName = req.user.username;
+        const user = await User.findOne({ username: userName });
+
+        if (name) {
+            user.name = name;
+        }
+
+        if (password) {
+            const hashedPassword = await bcrypt.hash(password, 10);
+            user.password = hashedPassword;
+        }
+
+        if (offHours) {
+            user.offHours = offHours;
+        }
+
+        await user.save();
+
+        res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
