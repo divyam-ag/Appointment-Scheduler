@@ -1,11 +1,19 @@
 const mongoose = require('mongoose');
 
 const appointmentSchema = new mongoose.Schema({
-    scheduler: {
+    schedulerName: {
         type: String,
         required: true,
     },
-    recipient: {
+    guestName: {
+        type: String,
+        required: true,
+    },
+    schedulerId: {
+        type: String,
+        required: true,
+    },
+    guestId: {
         type: String,
         required: true,
     },
@@ -21,6 +29,7 @@ const appointmentSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
 });
 
 const Appointment = mongoose.model('Appointment', appointmentSchema);

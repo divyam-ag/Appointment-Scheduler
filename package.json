@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/divyam-ag/Appointment-Scheduler#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^7.5.0"
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1"
   }
 }
