@@ -16,3 +16,22 @@ Availability Management: Users can mark their off-hours on their profile page, i
 
 Advanced Scheduling Logic: The application includes advanced scheduling logic to prevent overlapping appointments and ensure a smooth scheduling experience.
 
+
+API LOGIC FLOW:
+
+Sign Up:
+
+The user first needs to sign up using the signup api. Upon signin users details are stored in the user collection.
+The username and emailid are set to be unique in db and ccannot have duplicate entries.
+
+Login:
+
+Then the user needs to login using the login api. Only a signed-up user is allowed to login. Upon successful login a token is returend in response.
+This token is used for authentication for other apis.
+This token has an expiry of 1 hour. After 1 hour uer needs to re-login.
+
+
+Appointment Scheduling
+
+In the Schedule Api, the schedulerId is meant to be user's username and thus unique. It is used to authorize the user. If the schedulerId provided does not match with the username attached to the auth token at the time of login, the user is unauthorized.
+The guestId is meant to be the guest's unique username.
